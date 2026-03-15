@@ -1,0 +1,80 @@
+# Climate Modeling Project Configuration
+
+# Project Settings
+project:
+  name: "Climate Extreme Event Prediction"
+  version: "1.0.0"
+  description: "ML/DL models for Flood, Heatwave, and Rainfall prediction"
+
+# Data Settings
+data:
+  # Data directory paths
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  output_dir: "data/output"
+  
+  # Climate data source (using sample data for demo)
+  source: "synthetic"  # Options: "era5", "nasa", "synthetic"
+  
+  # Time range for training data
+  start_date: "2010-01-01"
+  end_date: "2023-12-31"
+  
+  # Spatial resolution
+  resolution: 0.25  # degrees
+  
+  # Variables to fetch
+  variables:
+    - temperature
+    - humidity
+    - pressure
+    - wind_speed
+    - rainfall
+    - soil_moisture
+
+# Model Settings
+models:
+  flood:
+    input_features: ["rainfall", "soil_moisture", "humidity", "pressure"]
+    output_horizon: 24  # hours
+    sequence_length: 24  # 1 day of hourly data
+    
+  heatwave:
+    input_features: ["temperature", "humidity", "wind_speed"]
+    output_horizon: 24  # hours
+    heatwave_threshold: 35  # Celsius
+    
+  rainfall:
+    input_features: ["pressure", "precipitable_water", "cloud_cover"]
+    output_horizon: 24  # hours
+
+# Training Settings
+training:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.001
+  validation_split: 0.2
+  early_stopping_patience: 10
+  
+  # Device
+  device: "cuda"  # or "cpu"
+
+# Visualization Settings
+visualization:
+  colormap:
+    flood: "Blues"
+    heatwave: "YlOrRd"
+    rainfall: "Blues"
+  
+  risk_levels:
+    low: 0.33
+    medium: 0.66
+    high: 1.0
+
+# Dashboard Settings
+dashboard:
+  title: "Climate Extreme Event Prediction Dashboard"
+  default_location: [20.0, 77.0]  # India center
+  default_zoom: 5
+  forecast_days: 14
+

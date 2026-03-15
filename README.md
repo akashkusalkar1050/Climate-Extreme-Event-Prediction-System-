@@ -1,4 +1,3 @@
-# Climate-Extreme-Event-Prediction-System-
 <<<<<<< HEAD
 # 🌦️ Climate Extreme Event Prediction
 
@@ -183,5 +182,4 @@ consult with meteorologists and use official data sources.
 =======
 # Climate-Extreme-Event-Prediction-System-
 Machine learning project to predict extreme climate events such as floods, heatwaves, and heavy rainfall using historical climate datasets. Includes data preprocessing, feature engineering, predictive modeling with Scikit-Learn, TensorFlow, and XGBoost, and visualization of climate trends.
-
 
